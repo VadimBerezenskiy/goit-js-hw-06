@@ -3,9 +3,7 @@ const getSortedUniqueSkills = users => {
   return users.reduce((allSkills, user) => {
     allSkills.push(...user.skills);
     return allSkills
-      .filter(skills =>
-        allSkills.hasOwnProperty(skills) ? false : (allSkills[skills] = true),
-      )
+      .filter((skill, pos) => allSkills.indexOf(skill) == pos)
       .sort();
   }, []);
 };
