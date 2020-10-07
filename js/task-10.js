@@ -1,11 +1,20 @@
 import users from './users.js';
+let allSkillsUsers;
 const getSortedUniqueSkills = users => {
-  return users.reduce((allSkills, user) => {
+  allSkillsUsers = users.reduce((allSkills, user) => {
     allSkills.push(...user.skills);
-    return allSkills
-      .filter((skill, pos) => allSkills.indexOf(skill) == pos)
-      .sort();
+    return allSkills;
   }, []);
+  return allSkillsUsers
+    .filter((skill, pos) => allSkillsUsers.indexOf(skill) === pos)
+    .sort();
+
+  // return (allSkillsUsers = users.reduce((allSkills, user) => {
+  //   allSkills.push(...user.skills);
+  //   return allSkills
+  //     .filter((skill, pos) => allSkills.indexOf(skill) === pos)
+  //     .sort();
+  // }, []));
 };
 
 console.log(getSortedUniqueSkills(users));

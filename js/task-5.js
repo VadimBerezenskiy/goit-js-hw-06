@@ -1,8 +1,9 @@
 import users from './users.js';
-let findUserFoEmail = null;
+let findUserFoEmail;
 
 const getUserWithEmail = (users, email) => {
-  if ((findUserFoEmail = users.find(user => user.email === email))) {
+  findUserFoEmail = users.find(user => user.email === email);
+  if (findUserFoEmail) {
     return findUserFoEmail.name;
   }
 };
